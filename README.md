@@ -9,7 +9,6 @@ Drupal Website Launch Checklist
     - Acquia Insight;
     - YSlow;
 - Performance and Scalability Checklist module;
-- Follow Yahoo YSlow recommendation;
 - Match the requirements of Acquia Insight;
 - Analyze Coder Review results;
 - Perform load testing using tools with cleared database cache, memcache and image styles when caches are disabled;
