@@ -1,6 +1,7 @@
 Drupal Website Launch Checklist
 =======================
 
+## Pre-launch ##
 - Perform load testing & optimization beforehand include slow-log analyses;
 - Check Drupal SEO Tools report;
 - Match recommendations of the following:
@@ -41,3 +42,10 @@ Drupal Website Launch Checklist
     - Use [Cache Warmer module](https://drupal.org/project/cache_warmer);
     - Use [HTTPRL Spider module](https://drupal.org/project/httprl_spider);
 - If possible, perform launch component-by-component and one-by-one.
+
+## Gotchas ##
+- If you maintain a very large number of files on your website, it can have a substantial negative effect on performance and stability, especially if they are all contained in the same directory.  If your site requires a large number of files, maintain them in multiple directories. 
+- Some conditions prevent the use of an in-memory temporary table, in which case the server uses an on-disk table instead:
+	- Presence of a BLOB or TEXT column in the table
+	- Presence of any string column in a GROUP BY or DISTINCT clause larger than 512 bytes
+	- Presence of any string column with a maximum length larger than 512 (bytes for binary strings, characters for nonbinary strings) in the SELECTlist, if UNION or UNION ALL is used
