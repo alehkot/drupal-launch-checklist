@@ -3,6 +3,7 @@ Drupal Website Launch Checklist
 
 ## Pre-launch ##
 - Perform load testing & optimization beforehand include slow-log analyses;
+  - [Percona Toolkit](http://www.percona.com/doc/percona-toolkit/2.2/pt-query-digest.html) for MySQL can help to analyze slow logs;
 - Check Drupal SEO Tools report;
 - Match recommendations of the following:
 	- [Security Review Module](https://drupal.org/project/security_review);
@@ -27,7 +28,7 @@ Drupal Website Launch Checklist
 - Test simultaneous an consequent anonymous access scenarios and behavior when every cache is enabled;
 - Replace database logging functionality with other solutions, e.g. syslog;
 - Disable any errors output on frontend;
-- Enable fast_404 in settings.php file;
+- Enable fast_404 in settings.php file or use [Fast 404](https://drupal.org/project/fast_404) module;
 - [Make sure file permissions for file directories and code directory are set correctly](http://drupal.org/node/244924);
 - Make sure that input formats are correctly configured;
 - On /admin/config/system/site-information make sure the email address and name are correct;
@@ -48,6 +49,7 @@ Drupal Website Launch Checklist
 
 ## Gotchas ##
 - If you maintain a very large number of files on your website, it can have a substantial negative effect on performance and stability, especially if they are all contained in the same directory.  If your site requires a large number of files, maintain them in multiple directories;
+- Using standard Views pager might cause performance issues because of additional COUNT query. Use [Views Litepager](https://drupal.org/project/views_litepager) instead.
 - Some conditions prevent the use of an in-memory temporary table, in which case the server uses an on-disk table instead:
 	- Presence of a BLOB or TEXT column in the table;
 	- Presence of any string column in a GROUP BY or DISTINCT clause larger than 512 bytes;
